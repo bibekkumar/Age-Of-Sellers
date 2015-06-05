@@ -1,11 +1,13 @@
 package com.flipkart.age_of_sellers;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -34,7 +36,7 @@ public class GameBoardFragment extends Fragment {
 // Now that we have some dummy forecast data, create an ArrayAdapter.
 // The ArrayAdapter will take data from a source (like our dummy forecast) and
 // use it to populate the ListView it's attached to.
-        ArrayAdapter<String> forecastAdapter =
+        final ArrayAdapter<String> forecastAdapter =
                 new ArrayAdapter<String>(
                         getActivity(), // The current context (this activity)
                         R.layout.game_item, // The name of the layout ID.
@@ -43,6 +45,16 @@ public class GameBoardFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_game_board, container, false);
         ListView listView = (ListView) rootView.findViewById(R.id.list_gameboards);
         listView.setAdapter(forecastAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                String forecast = forecastAdapter.getItem(position);
+                Intent intent = new Intent(getActivity(), DetailGameBoardActivity.class)
+                        .putExtra(Intent.EXTRA_TEXT, forecast);
+                startActivity(intent);
+            }
+        });
         return rootView;
     }
     public GameBoardFragment(){
