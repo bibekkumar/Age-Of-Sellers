@@ -40,7 +40,7 @@ public class GameBoardFragment extends Fragment {
                         R.layout.game_item, // The name of the layout ID.
                         R.id.game_item_textview, // The ID of the textview to populate.
                         weekForecast);
-        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_game_board, container, false);
         ListView listView = (ListView) rootView.findViewById(R.id.list_gameboards);
         listView.setAdapter(forecastAdapter);
         return rootView;

@@ -46,7 +46,7 @@ public class MainActivity extends Activity  {
 
                         password.getText().toString().equals("admin")) {
                     Toast.makeText(getApplicationContext(), "Redirecting...", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(this, BaseActivity.class);
+                    Intent intent = new Intent(MainActivity.this, BaseActivity.class);
                     startActivity(intent);
                 } else {
                     Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();
