@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import android.content.Intent;
 
 public class MainActivity extends Activity  {
     Button submit,reset;
@@ -45,6 +46,8 @@ public class MainActivity extends Activity  {
 
                         password.getText().toString().equals("admin")) {
                     Toast.makeText(getApplicationContext(), "Redirecting...", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, BaseActivity.class);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();
                 }
