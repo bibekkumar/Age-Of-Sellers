@@ -22,4 +22,10 @@
         android:name="com.flipkart.age_of_sellers.NavigationDrawerFragment"
         tools:layout="@layout/fragment_navigation_drawer" />
 
+    <fragment android:id="@+id/game_board"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:name="com.flipkart.age_of_sellers.GameBoardFragment"
+        tools:layout="@layout/fragment_game_board" />
+
 </android.support.v4.widget.DrawerLayout>

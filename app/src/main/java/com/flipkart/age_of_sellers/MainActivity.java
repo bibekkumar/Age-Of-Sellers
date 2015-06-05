@@ -42,11 +42,11 @@ public class MainActivity extends Activity  {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (username.getText().toString().equals("admin") &&
+                if (username.getText().toString().equals("a") &&
 
-                        password.getText().toString().equals("admin")) {
+                        password.getText().toString().equals("a")) {
                     Toast.makeText(getApplicationContext(), "Redirecting...", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(this, BaseActivity.class);
+                    Intent intent = new Intent(MainActivity.this, BaseActivity.class);
                     startActivity(intent);
                 } else {
                     Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();
