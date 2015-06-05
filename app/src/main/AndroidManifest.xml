@@ -26,6 +26,10 @@
             android:name=".Operation_workflow"
             android:label="@string/title_activity_operation_workflow" >
         </activity>
+        <activity
+            android:name=".DetailGameBoardActivity"
+            android:label="@string/title_activity_detail" >
+        </activity>
     </application>
 
 

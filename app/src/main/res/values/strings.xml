@@ -15,6 +15,7 @@
 
     <string name="action_example">Example action</string>
     <string name="title_activity_operation_workflow">Operation_workflow</string>
+    <string name="title_activity_detail">Game Board Details</string>
     <string name="title_section0">Home</string>
 
 </resources>
