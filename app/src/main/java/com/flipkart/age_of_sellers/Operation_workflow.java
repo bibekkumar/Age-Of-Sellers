@@ -19,7 +19,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
-public class Operation_workflow extends ActionBarActivity {
+public class Operation_workflow extends BaseActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
