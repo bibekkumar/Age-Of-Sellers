@@ -72,9 +72,9 @@ public class BaseActivity extends ActionBarActivity
                 break;
         }
         if(fragment != null){
-            FragmentManager fragmentManager = getFragmentManager();
+            FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction()
-                    .replace(R.id.frame_container, fragment).commit();
+                    .replace(R.id.container, fragment).commit();
         }
     }
 
