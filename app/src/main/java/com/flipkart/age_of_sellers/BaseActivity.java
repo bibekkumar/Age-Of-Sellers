@@ -19,7 +19,8 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 
-public class NavActivity extends ActionBarActivity
+
+public class BaseActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     /**
@@ -141,7 +142,7 @@ public class NavActivity extends ActionBarActivity
         @Override
         public void onAttach(Activity activity) {
             super.onAttach(activity);
-            ((NavActivity) activity).onSectionAttached(
+            ((BaseActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
     }
