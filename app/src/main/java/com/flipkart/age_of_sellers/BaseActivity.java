@@ -33,9 +33,9 @@ public class BaseActivity extends ActionBarActivity
      */
     private CharSequence mTitle;
 
-    public BaseActivity(){
+    //public BaseActivity(Bundle savedInstanceState){
 
-    }
+    //}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,13 +65,16 @@ public class BaseActivity extends ActionBarActivity
         Fragment fragment = null;
         switch (number) {
             case 1:
+                mTitle = getString(R.string.title_section0);
+                break;
+            case 2:
                 mTitle = getString(R.string.title_section1);
                 fragment = new GameBoardFragment();
                 break;
-            case 2:
+            case 3:
                 mTitle = getString(R.string.title_section2);
                 break;
-            case 3:
+            case 4:
                 mTitle = getString(R.string.title_section3);
                 break;
         }
