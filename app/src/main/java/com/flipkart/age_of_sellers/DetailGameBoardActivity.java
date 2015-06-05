@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 public class DetailGameBoardActivity extends ActionBarActivity {
     @Override
@@ -57,7 +58,17 @@ public class DetailGameBoardActivity extends ActionBarActivity {
                 String forecastStr = intent.getStringExtra(Intent.EXTRA_TEXT);
                 ((TextView) rootView.findViewById(R.id.detail_text))
                         .setText(forecastStr);
+
             }
+
+            Button buttonOne = (Button) rootView.findViewById(R.id.startGame);
+            buttonOne.setOnClickListener(new Button.OnClickListener() {
+                public void onClick(View v) {
+                    //Do stuff here
+                    Intent intent = new Intent(getActivity(),BaseActivity.class);
+                    startActivity(intent);
+                }
+            });
             return rootView;
         }
     }
