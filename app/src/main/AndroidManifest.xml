@@ -9,7 +9,7 @@
         android:theme="@style/AppTheme" >
 
         <activity
-            android:name=".MainActivity"
+            android:name=".BaseActivity"
             android:label="@string/app_name" >
 
             <intent-filter>
@@ -18,7 +18,14 @@
             </intent-filter>
 
         </activity>
-
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_nav" >
+        </activity>
+        <activity
+            android:name=".Operation_workflow"
+            android:label="@string/title_activity_operation_workflow" >
+        </activity>
     </application>
 
 

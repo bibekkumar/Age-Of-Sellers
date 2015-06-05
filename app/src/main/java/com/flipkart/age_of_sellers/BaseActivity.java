@@ -58,9 +58,11 @@ public class BaseActivity extends ActionBarActivity
     }
 
     public void onSectionAttached(int number) {
+        Fragment fragment = null;
         switch (number) {
             case 1:
                 mTitle = getString(R.string.title_section1);
+                fragment = new GameBoardFragment();
                 break;
             case 2:
                 mTitle = getString(R.string.title_section2);
@@ -68,6 +70,11 @@ public class BaseActivity extends ActionBarActivity
             case 3:
                 mTitle = getString(R.string.title_section3);
                 break;
+        }
+        if(fragment != null){
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, fragment).commit();
         }
     }
 
