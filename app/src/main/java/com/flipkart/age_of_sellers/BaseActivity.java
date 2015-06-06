@@ -28,12 +28,11 @@ public class BaseActivity extends ActionBarActivity
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
-    private NavigationDrawerFragment mNavigationDrawerFragment;
-
+    protected NavigationDrawerFragment mNavigationDrawerFragment;
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
-    private CharSequence mTitle;
+    protected CharSequence mTitle;
 
     //public BaseActivity(Bundle savedInstanceState){
 
@@ -95,6 +94,8 @@ public class BaseActivity extends ActionBarActivity
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle(mTitle);
     }
+
+
 
 
     @Override
