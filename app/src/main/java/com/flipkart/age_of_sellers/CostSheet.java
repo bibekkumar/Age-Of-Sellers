@@ -10,9 +10,10 @@ import java.util.Map;
  */
 public class CostSheet {
 
-    private HashMap<String, String> marketing_cost;
-    private HashMap<String, String> inventory_cost;
-    private HashMap<String, HashMap<String, HashMap<String, String>>> bound;
+    public HashMap<String, String> marketing_cost;
+    public HashMap<String, String> inventory_cost;
+    public HashMap<String, String> operating_cost;
+    public HashMap<String, HashMap<String, HashMap<String, String>>> bound;
     HashMap<String, HashMap<String, String>> segment;
     HashMap<String, String> type;
     private static CostSheet ourInstance = new CostSheet();
@@ -24,6 +25,7 @@ public class CostSheet {
     private CostSheet() {
         marketing_cost = new HashMap<String, String>();
         inventory_cost = new HashMap<String, String>();
+        operating_cost = new HashMap<String,String>();
         bound = new HashMap<String, HashMap<String, HashMap<String, String>>>();
         segment = new HashMap<String, HashMap<String, String>>();
         type = new HashMap<String, String>();
@@ -36,6 +38,11 @@ public class CostSheet {
             inventory_cost.put(result.getJSONArray("investement_packages").getJSONObject(7).getString("package"), result.getJSONArray("investement_packages").getJSONObject(7).getString("cost_per_week"));
             inventory_cost.put(result.getJSONArray("investement_packages").getJSONObject(8).getString("package"), result.getJSONArray("investement_packages").getJSONObject(8).getString("cost_per_week"));
             inventory_cost.put(result.getJSONArray("investement_packages").getJSONObject(9).getString("package"), result.getJSONArray("investement_packages").getJSONObject(9).getString("cost_per_week"));
+            operating_cost.put(result.getJSONArray("investement_packages").getJSONObject(2).getString("package"), result.getJSONArray("investement_packages").getJSONObject(2).getString("cost_per_week"));
+            operating_cost.put(result.getJSONArray("investement_packages").getJSONObject(3).getString("package"), result.getJSONArray("investement_packages").getJSONObject(3).getString("cost_per_week"));
+            operating_cost.put(result.getJSONArray("investement_packages").getJSONObject(4).getString("package"), result.getJSONArray("investement_packages").getJSONObject(4).getString("cost_per_week"));
+            operating_cost.put(result.getJSONArray("investement_packages").getJSONObject(5).getString("package"), result.getJSONArray("investement_packages").getJSONObject(5).getString("cost_per_week"));
+            operating_cost.put(result.getJSONArray("investement_packages").getJSONObject(6).getString("package"), result.getJSONArray("investement_packages").getJSONObject(6).getString("cost_per_week"));
 
             for (int k = 0; k < 3; k++) {
 
