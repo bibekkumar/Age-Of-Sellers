@@ -72,7 +72,7 @@ public class DetailGameBoardActivity extends ActionBarActivity {
                 public void onClick(View v) {
                     //Do stuff here
                     try {
-                        String targetUrl = "www.example.com"; //TODO: Add the url here;
+                        String targetUrl = "http://172.20.195.177:2445/gameboards"; //TODO: Add the url here;
                         String urlParameters =
                                 "&game_id=" + URLEncoder.encode(forecastStr, "UTF-8") +
                                         "&user_id=" + URLEncoder.encode("???", "UTF-8");
