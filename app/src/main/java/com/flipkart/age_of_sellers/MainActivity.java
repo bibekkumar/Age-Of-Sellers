@@ -50,8 +50,6 @@ public class MainActivity extends Activity  {
                     startActivity(intent);
                 } else {
                     Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();
-
-
                 }
             }
         });
@@ -59,7 +57,9 @@ public class MainActivity extends Activity  {
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                String nullMessage = "";
+                username.setText(nullMessage);
+                password.setText(nullMessage);
             }
         });
     }

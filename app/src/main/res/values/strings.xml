@@ -10,6 +10,12 @@
     <string name="title_section2">Profile</string>
     <string name="title_section3">Cost Sheet</string>
 
+    <string name="wf_operation_tab">Opetations</string>
+    <string name="wf_procurement_tab">Procurement</string>
+    <string name="wf_pricing_tab">Pricing</string>
+    <string name="wf_marketing_tab">Marketing</string>
+    <string name="wf_summary_tab">Summary</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
@@ -17,5 +23,6 @@
     <string name="title_activity_operation_workflow">Operation_workflow</string>
     <string name="title_activity_detail">Game Board Details</string>
     <string name="title_section0">Home</string>
+    <string name="title_activity_start_workflow">start_workflow</string>
 
 </resources>
