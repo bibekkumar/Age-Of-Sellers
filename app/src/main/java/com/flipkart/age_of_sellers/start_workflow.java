@@ -19,7 +19,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
-public class Operation_workflow extends ActionBarActivity {
+public class start_workflow extends ActionBarActivity implements ActionBar.TabListener {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -39,8 +39,11 @@ public class Operation_workflow extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_operation_workflow);
+        setContentView(R.layout.activity_start_workflow);
 
+        // Set up the action bar.
+        final ActionBar actionBar = getSupportActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -50,14 +53,34 @@ public class Operation_workflow extends ActionBarActivity {
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
+        // When swiping between different sections, select the corresponding
+        // tab. We can also use ActionBar.Tab#select() to do this if we have
+        // a reference to the Tab.
+        mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+            @Override
+            public void onPageSelected(int position) {
+                actionBar.setSelectedNavigationItem(position);
+            }
+        });
+
+        // For each of the sections in the app, add a tab to the action bar.
+        for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) {
+            // Create a tab with text corresponding to the page title defined by
+            // the adapter. Also specify this Activity object, which implements
+            // the TabListener interface, as the callback (listener) for when
+            // this tab is selected.
+            actionBar.addTab(
+                    actionBar.newTab()
+                            .setText(mSectionsPagerAdapter.getPageTitle(i))
+                            .setTabListener(this));
+        }
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_operation_workflow, menu);
-
+        getMenuInflater().inflate(R.menu.menu_start_workflow, menu);
         return true;
     }
 
@@ -76,6 +99,20 @@ public class Operation_workflow extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+        // When the given tab is selected, switch to the corresponding page in
+        // the ViewPager.
+        mViewPager.setCurrentItem(tab.getPosition());
+    }
+
+    @Override
+    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+    }
+
+    @Override
+    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+    }
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -96,7 +133,7 @@ public class Operation_workflow extends ActionBarActivity {
 
         @Override
         public int getCount() {
-            // Show 5 total pages.
+            // Show 3 total pages.
             return 5;
         }
 
@@ -147,7 +184,30 @@ public class Operation_workflow extends ActionBarActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_operation_workflow, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_start_workflow, container, false);
+            View dyView = null;
+
+            Seller me = Seller.getInstance();
+
+            switch (this.getArguments().getInt(ARG_SECTION_NUMBER)) {
+                case 1:
+                    dyView = inflater.inflate(R.layout.opetations_start_workflow, (ViewGroup) rootView.findViewById(R.id.DataLayer), true);
+                    break;
+                case 2:
+                    dyView = inflater.inflate(R.layout.procurment_start_workflow, (ViewGroup) rootView.findViewById(R.id.DataLayer), true);
+                    break;
+                case 3:
+                    dyView = inflater.inflate(R.layout.pricing_start_workflow, (ViewGroup) rootView.findViewById(R.id.DataLayer), true);
+                    break;
+                case 4:
+                    dyView = inflater.inflate(R.layout.marketing_start_workflow, (ViewGroup) rootView.findViewById(R.id.DataLayer), true);
+                    break;
+                case 5:
+                    dyView = inflater.inflate(R.layout.summary_start_workflow, (ViewGroup) rootView.findViewById(R.id.DataLayer), true);
+                    break;
+            }
+            TextView view = (TextView) rootView.findViewById(R.id.textview);
+
             return rootView;
         }
     }

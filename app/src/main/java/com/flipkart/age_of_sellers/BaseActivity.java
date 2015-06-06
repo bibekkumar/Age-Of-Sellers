@@ -1,6 +1,7 @@
 package com.flipkart.age_of_sellers;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.TextView;
 
 
@@ -73,6 +75,8 @@ public class BaseActivity extends ActionBarActivity
                 break;
             case 3:
                 mTitle = getString(R.string.title_section2);
+                Intent intent = new Intent(this, start_workflow.class);
+                startActivity(intent);
                 break;
             case 4:
                 mTitle = getString(R.string.title_section3);
