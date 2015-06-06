@@ -79,8 +79,8 @@ public class DetailGameBoardActivity extends ActionBarActivity {
                         Helper.excutePost(targetUrl,urlParameters);
 
                     }
-                    catch(UnsupportedEncodingException e){
-
+                    catch(Exception e){
+                        e.printStackTrace();
                     }
 
                     Intent intent = new Intent(getActivity(),BaseActivity.class);

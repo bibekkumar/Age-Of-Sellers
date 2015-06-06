@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,15 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import com.flipkart.age_of_sellers.DetailGameBoardActivity;
+
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.BasicResponseHandler;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -22,17 +32,46 @@ public class GameBoardFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        List<String> weekForecast = new ArrayList<String>();
+        HttpClient client = new DefaultHttpClient();
+        String url = "http://172.20.195.177:2445/gameboards";
+        Log.e("test","test");
+        try
+        {
+            String setServerString = "";
 
-        String[] data = {
-                "Mon 6/23 - Sunny - 31/17",
-                "Tue 6/24 - Foggy - 21/8",
-                "Wed 6/25 - Cloudy - 22/17",
-                "Thurs 6/26 - Rainy - 18/11",
-                "Fri 6/27 - Foggy - 21/10",
-                "Sat 6/28 - TRAPPED IN WEATHERSTATION - 23/18",
-                "Sun 6/29 - Sunny - 20/7"
-        };
-        List<String> weekForecast = new ArrayList<String>(Arrays.asList(data));
+            // Create Request to server and get response
+
+            HttpGet httpget = new HttpGet(url);
+            Log.e("test","test");
+            ResponseHandler<String> responseHandler = new BasicResponseHandler();
+            Log.e("test","test test test ");
+            setServerString = client.execute(httpget, responseHandler);
+            Log.e("test","test test test test ");
+
+            // Show response on activity
+            Log.e("json",setServerString);
+            //content.setText(SetServerString);
+            JSONArray jsonArray = new JSONArray(setServerString);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                Log.e("fkl","Here");
+
+                JSONObject jsonobject = jsonArray.getJSONObject(i);
+                String title = jsonobject.getString("title");
+                String id = jsonobject.getString("id");
+                weekForecast.add(title);
+            }
+
+        }
+        catch(Exception ex)
+        {
+            //content.setText("Fail!");
+            Log.e("BC BC","BC");
+            Log.e("Chutiyapa", ex.getMessage());
+            //ex.printStackTrace();
+        }
+
+
 // Now that we have some dummy forecast data, create an ArrayAdapter.
 // The ArrayAdapter will take data from a source (like our dummy forecast) and
 // use it to populate the ListView it's attached to.
