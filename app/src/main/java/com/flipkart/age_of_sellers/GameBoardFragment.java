@@ -43,11 +43,11 @@ public class GameBoardFragment extends Fragment {
 
 
         String url = "http://172.20.195.177:2445/gameboards";
-        Log.e("test","test");
+        //Log.e("test","test");
         try
         {
 
-            Log.e("test", "test test test test ");
+          //  Log.e("test", "test test test test ");
 
             // Show response on activity
 
@@ -100,22 +100,22 @@ public class GameBoardFragment extends Fragment {
             // Create Request to server and get response
 
                 HttpGet httpget = new HttpGet("http://172.20.195.177:2445/gameboards");
-                Log.e("test","test");
+                //Log.e("test","test");
                 ResponseHandler<String> responseHandler = new BasicResponseHandler();
-                Log.e("test","test test test ");
+                //Log.e("test","test test test ");
                 setServerString = client.execute(httpget, responseHandler);
-                Log.e("serverdown",setServerString);
+                //Log.e("serverdown",setServerString);
 
             }
             catch(Exception e){
-                Log.e("exception",e.toString());
+                //Log.e("exception",e.toString());
             }
             return jsonhelper(setServerString);
          }
 
         @Override
         protected void onPostExecute(ArrayList<String> result) {
-            Log.e("Clear","Clear");
+            //Log.e("Clear","Clear");
             if (result != null) {
                 forecastAdapter.clear();
                 ;
@@ -134,15 +134,16 @@ public class GameBoardFragment extends Fragment {
 
                     JSONObject jsonobject = jsonArray.getJSONObject(i);
                     String title = jsonobject.getString("title");
-                    result.add(title);
                     String id = jsonobject.getString("id");
-                    Log.e("fkl", "Here");
+                    result.add(title+"|"+id);
+
+                   // Log.e("fkl", "Here");
 
                 }
 
             }
             catch (Exception e){
-                Log.e("Error there",e.toString());
+             //   Log.e("Error there",e.toString());
             }
             return result;
         }
