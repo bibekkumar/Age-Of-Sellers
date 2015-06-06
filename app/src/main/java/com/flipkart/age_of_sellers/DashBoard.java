@@ -110,7 +110,7 @@ public class DashBoard extends Fragment {
                 //Do stuff here
 
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.user, new CostSheetFragment())
+                        .replace(R.id.costsheet, new CostSheetFragment())
                         .commit();
 
             }

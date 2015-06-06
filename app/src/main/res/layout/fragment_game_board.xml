@@ -8,6 +8,52 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         ></ListView>
-    
+    <TextView android:text="Dash Board from Below Fragment" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textview"
+        android:textSize="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        >
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home"
+            android:id="@+id/homeButton"
+
+            android:layout_gravity="bottom|left"
+
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dash Board"
+            android:id="@+id/dashboard"
+            android:layout_gravity="bottom"
+            android:layout_toLeftOf = "@+id/homeButton"
+
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User"
+            android:id="@+id/user"
+            android:layout_gravity="bottom|center"
+            android:layout_toLeftOf = "@+id/gameboard"
+
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="G S"
+            android:id="@+id/gamestat"
+            android:layout_gravity="bottom|right"
+
+            />
+    </LinearLayout>
 </FrameLayout>
