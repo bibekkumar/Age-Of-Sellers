@@ -75,8 +75,9 @@ public class BaseActivity extends ActionBarActivity
                 break;
             case 3:
                 mTitle = getString(R.string.title_section2);
-                Intent intent = new Intent(this, start_workflow.class);
-                startActivity(intent);
+                fragment = new ProfileFragment();
+                //Intent intent = new Intent(this, start_workflow.class);
+                //startActivity(intent);
                 break;
             case 4:
                 mTitle = getString(R.string.title_section3);

@@ -20,6 +20,8 @@ public class Seller {
 
     private String phone;
 
+    private String password;
+
     private SharedPreferences sPref;
 
     Context context;
@@ -30,13 +32,18 @@ public class Seller {
         return ourInstance;
     }
 
-    void init(String name, String email, String geo, String phn, Context cxt)
+    void setContext(Context context){
+        this.context = context;
+    }
+
+    void init(String name, String email, String geo, String phn, String password, Context cxt)
     {
         this.name = name;
         this.eMail = email;
         this.geoLocation = geo;
         this.phone = phn;
         this.context = cxt;
+        this.password = password;
 
         sPref = context.getSharedPreferences(eMail, 0);
         SharedPreferences.Editor editor = sPref.edit();
@@ -71,6 +78,11 @@ public class Seller {
     int getBudget()
     {
         return budget;
+    }
+
+    boolean varifyPassword(String pwd)
+    {
+        return (pwd == password);
     }
 
     void setBudget(int bud)
