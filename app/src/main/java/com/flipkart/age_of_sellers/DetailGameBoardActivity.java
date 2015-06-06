@@ -14,6 +14,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 public class DetailGameBoardActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +52,8 @@ public class DetailGameBoardActivity extends ActionBarActivity {
     public static class DetailFragment extends Fragment {
         public DetailFragment() {
         }
+
+        String forecastStr;
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
@@ -55,7 +61,7 @@ public class DetailGameBoardActivity extends ActionBarActivity {
 // The detail Activity called via intent. Inspect the intent for forecast data.
             Intent intent = getActivity().getIntent();
             if (intent != null && intent.hasExtra(Intent.EXTRA_TEXT)) {
-                String forecastStr = intent.getStringExtra(Intent.EXTRA_TEXT);
+                forecastStr = intent.getStringExtra(Intent.EXTRA_TEXT);
                 ((TextView) rootView.findViewById(R.id.detail_text))
                         .setText(forecastStr);
 
@@ -65,6 +71,18 @@ public class DetailGameBoardActivity extends ActionBarActivity {
             buttonOne.setOnClickListener(new Button.OnClickListener() {
                 public void onClick(View v) {
                     //Do stuff here
+                    try {
+                        String targetUrl = "www.example.com"; //TODO: Add the url here;
+                        String urlParameters =
+                                "&game_id=" + URLEncoder.encode(forecastStr, "UTF-8") +
+                                        "&user_id=" + URLEncoder.encode("???", "UTF-8");
+                        Helper.excutePost(targetUrl,urlParameters);
+
+                    }
+                    catch(UnsupportedEncodingException e){
+
+                    }
+
                     Intent intent = new Intent(getActivity(),BaseActivity.class);
                     startActivity(intent);
                 }
