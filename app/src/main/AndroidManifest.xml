@@ -28,8 +28,8 @@
             android:name=".start_workflow"
             android:label="@string/title_activity_start_workflow" >
         </activity>
-	<activity
-	    android:name=".DetailGameBoardActivity"
+	    <activity
+	     android:name=".DetailGameBoardActivity"
             android:label="@string/title_activity_detail" >
         </activity>
     </application>
